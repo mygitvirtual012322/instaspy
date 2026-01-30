@@ -47,7 +47,7 @@ def save_order(order_data):
 
 @app.route('/')
 def root():
-    return send_from_directory('.', 'index.html')
+    return send_from_directory('templates', 'home.html')
 
 # Rotas do Admin (Frontend)
 @app.route('/admin/login')
