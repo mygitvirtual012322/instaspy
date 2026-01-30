@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visualize mensagens diretas do Instagram">
+    <title>Mensagens Diretas - Stalkea.ai</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/direct.css">
+</head>
+
+<body class="instagram-theme">
+    <!-- Instagram Header -->
+    <header class="ig-header">
+        <div class="ig-header-content">
+            <div class="ig-header-left">
+                <button class="ig-back-btn" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="ig-logo">
+                    <span id="header-username">@username</span>
+                </div>
+            </div>
+            <div class="ig-header-actions">
+                <button class="ig-icon-btn">
+                    <i class="fas fa-video"></i>
+                </button>
+                <button class="ig-icon-btn">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dm-main">
+        <div class="dm-container">
+            <!-- Sidebar: Message List -->
+            <aside class="dm-sidebar">
+                <div class="dm-sidebar-header">
+                    <h2 class="dm-title">Mensagens Diretas</h2>
+                    <button class="dm-filter-btn">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+
+                <!-- Message List -->
+                <div class="dm-list">
+                    <!-- Message Item 1 -->
+                    <div class="dm-item" onclick="showBlockedModal()">
+                        <div class="dm-avatar">
+                            <div class="dm-avatar-gradient">
+                                <div class="dm-avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <span class="dm-online-indicator"></span>
+                        </div>
+                        <div class="dm-info">
+                            <div class="dm-name-row">
+                                <span class="dm-name">Carolina Silva</span>
+                                <span class="dm-time">2h</span>
+                            </div>
+                            <div class="dm-preview">
+                                <span class="dm-message">Oi amor, tudo bem? ❤️</span>
+                                <span class="dm-unread">3</span>
+                            </div>
+                        </div>
+                        <div class="dm-blur-overlay"></div>
+                    </div>
+
+                    <!-- Message Item 2 -->
+                    <div class="dm-item" onclick="showBlockedModal()">
+                        <div class="dm-avatar">
+                            <div class="dm-avatar-gradient">
+                                <div class="dm-avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dm-info">
+                            <div class="dm-name-row">
+                                <span class="dm-name">Rafael Costa</span>
+                                <span class="dm-time">5h</span>
+                            </div>
+                            <div class="dm-preview">
+                                <span class="dm-message">Vamos sair hoje?</span>
+                            </div>
+                        </div>
+                        <div class="dm-blur-overlay"></div>
+                    </div>
+
+                    <!-- Message Item 3 -->
+                    <div class="dm-item" onclick="showBlockedModal()">
+                        <div class="dm-avatar">
+                            <div class="dm-avatar-gradient">
+                                <div class="dm-avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <span class="dm-online-indicator"></span>
+                        </div>
+                        <div class="dm-info">
+                            <div class="dm-name-row">
+                                <span class="dm-name">Juliana Mendes</span>
+                                <span class="dm-time">1d</span>
+                            </div>
+                            <div class="dm-preview">
+                                <span class="dm-message">😍😍😍</span>
+                                <span class="dm-unread">1</span>
+                            </div>
+                        </div>
+                        <div class="dm-blur-overlay"></div>
+                    </div>
+
+                    <!-- Message Item 4 -->
+                    <div class="dm-item" onclick="showBlockedModal()">
+                        <div class="dm-avatar">
+                            <div class="dm-avatar-gradient">
+                                <div class="dm-avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dm-info">
+                            <div class="dm-name-row">
+                                <span class="dm-name">Lucas Oliveira</span>
+                                <span class="dm-time">2d</span>
+                            </div>
+                            <div class="dm-preview">
+                                <span class="dm-message">Opa, beleza?</span>
+                            </div>
+                        </div>
+                        <div class="dm-blur-overlay"></div>
+                    </div>
+
+                    <!-- Message Item 5 -->
+                    <div class="dm-item" onclick="showBlockedModal()">
+                        <div class="dm-avatar">
+                            <div class="dm-avatar-gradient">
+                                <div class="dm-avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dm-info">
+                            <div class="dm-name-row">
+                                <span class="dm-name">Amanda Rodrigues</span>
+                                <span class="dm-time">3d</span>
+                            </div>
+                            <div class="dm-preview">
+                                <span class="dm-message">Obrigada! 💕</span>
+                            </div>
+                        </div>
+                        <div class="dm-blur-overlay"></div>
+                    </div>
+
+                    <!-- Message Item 6 -->
+                    <div class="dm-item" onclick="showBlockedModal()">
+                        <div class="dm-avatar">
+                            <div class="dm-avatar-gradient">
+                                <div class="dm-avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <span class="dm-online-indicator"></span>
+                        </div>
+                        <div class="dm-info">
+                            <div class="dm-name-row">
+                                <span class="dm-name">Pedro Santos</span>
+                                <span class="dm-time">4d</span>
+                            </div>
+                            <div class="dm-preview">
+                                <span class="dm-message">Foto enviada</span>
+                                <i class="fas fa-image dm-media-icon"></i>
+                            </div>
+                        </div>
+                        <div class="dm-blur-overlay"></div>
+                    </div>
+
+                    <!-- Message Item 7 -->
+                    <div class="dm-item" onclick="showBlockedModal()">
+                        <div class="dm-avatar">
+                            <div class="dm-avatar-gradient">
+                                <div class="dm-avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dm-info">
+                            <div class="dm-name-row">
+                                <span class="dm-name">Beatriz Lima</span>
+                                <span class="dm-time">5d</span>
+                            </div>
+                            <div class="dm-preview">
+                                <span class="dm-message">Que legal! 🎉</span>
+                            </div>
+                        </div>
+                        <div class="dm-blur-overlay"></div>
+                    </div>
+
+                    <!-- Message Item 8 -->
+                    <div class="dm-item" onclick="showBlockedModal()">
+                        <div class="dm-avatar">
+                            <div class="dm-avatar-gradient">
+                                <div class="dm-avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dm-info">
+                            <div class="dm-name-row">
+                                <span class="dm-name">Gabriel Ferreira</span>
+                                <span class="dm-time">1sem</span>
+                            </div>
+                            <div class="dm-preview">
+                                <span class="dm-message">Combinado então!</span>
+                            </div>
+                        </div>
+                        <div class="dm-blur-overlay"></div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main: Conversation View -->
+            <section class="dm-conversation">
+                <div class="dm-empty-state">
+                    <div class="dm-empty-icon">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </div>
+                    <h3 class="dm-empty-title">Suas Mensagens</h3>
+                    <p class="dm-empty-text">
+                        Selecione uma conversa para visualizar as mensagens completas
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <div class="cta-card">
+                <div class="cta-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="cta-title">Mensagens Bloqueadas</h3>
+                <p class="cta-description">
+                    Todas as conversas estão bloqueadas. Desbloqueie acesso VIP para ler mensagens completas, ver fotos
+                    enviadas e muito mais!
+                </p>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Mensagens completas</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Fotos e vídeos enviados</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Áudios e chamadas</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Mensagens deletadas</span>
+                    </div>
+                </div>
+                <button class="cta-btn" onclick="goToCTA()">
+                    <i class="fas fa-unlock"></i>
+                    Desbloquear Acesso VIP
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../scripts/core/geral.min.js"></script>
+    <script src="../scripts/pages/direct.js"></script>
+</body>
+
+</html>

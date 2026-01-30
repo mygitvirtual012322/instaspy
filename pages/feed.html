@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visualize o feed completo do Instagram">
+    <title>Feed - Stalkea.ai</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/feed.css">
+</head>
+
+<body class="instagram-theme">
+    <!-- Instagram Header -->
+    <header class="ig-header">
+        <div class="ig-header-content">
+            <div class="ig-logo">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </div>
+            <div class="ig-header-actions">
+                <button class="ig-icon-btn">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button class="ig-icon-btn">
+                    <i class="fab fa-facebook-messenger"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="ig-main">
+        <!-- Profile Section -->
+        <div class="ig-profile">
+            <div class="ig-profile-header">
+                <div class="ig-profile-avatar">
+                    <div class="ig-avatar-gradient">
+                        <div class="ig-avatar-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="ig-profile-stats">
+                    <div class="ig-stat">
+                        <span class="ig-stat-value">127</span>
+                        <span class="ig-stat-label">publicações</span>
+                    </div>
+                    <div class="ig-stat">
+                        <span class="ig-stat-value">2.4k</span>
+                        <span class="ig-stat-label">seguidores</span>
+                    </div>
+                    <div class="ig-stat">
+                        <span class="ig-stat-value">892</span>
+                        <span class="ig-stat-label">seguindo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ig-profile-info">
+                <h1 class="ig-profile-name" id="profile-username">@username</h1>
+                <p class="ig-profile-bio">📍 São Paulo, Brasil<br>✨ Vivendo a vida<br>💼 Empreendedor</p>
+            </div>
+
+            <div class="ig-profile-actions">
+                <button class="ig-btn ig-btn-primary" onclick="showBlockedModal()">
+                    <i class="fas fa-user-plus"></i>
+                    Seguir
+                </button>
+                <button class="ig-btn ig-btn-secondary" onclick="showBlockedModal()">
+                    <i class="fas fa-envelope"></i>
+                    Mensagem
+                </button>
+            </div>
+        </div>
+
+        <!-- Stories Bar -->
+        <div class="ig-stories">
+            <div class="ig-stories-scroll">
+                <div class="ig-story-item" onclick="showBlockedModal()">
+                    <div class="ig-story-avatar">
+                        <div class="ig-story-gradient">
+                            <div class="ig-story-image">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="ig-story-label">Story 1</span>
+                    <div class="ig-blur-overlay"></div>
+                </div>
+
+                <div class="ig-story-item" onclick="showBlockedModal()">
+                    <div class="ig-story-avatar">
+                        <div class="ig-story-gradient">
+                            <div class="ig-story-image">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="ig-story-label">Story 2</span>
+                    <div class="ig-blur-overlay"></div>
+                </div>
+
+                <div class="ig-story-item" onclick="showBlockedModal()">
+                    <div class="ig-story-avatar">
+                        <div class="ig-story-gradient">
+                            <div class="ig-story-image">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="ig-story-label">Story 3</span>
+                    <div class="ig-blur-overlay"></div>
+                </div>
+
+                <div class="ig-story-item" onclick="showBlockedModal()">
+                    <div class="ig-story-avatar">
+                        <div class="ig-story-gradient">
+                            <div class="ig-story-image">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="ig-story-label">Story 4</span>
+                    <div class="ig-blur-overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="ig-tabs">
+            <button class="ig-tab active">
+                <i class="fas fa-th"></i>
+                <span>PUBLICAÇÕES</span>
+            </button>
+            <button class="ig-tab" onclick="showBlockedModal()">
+                <i class="fas fa-bookmark"></i>
+                <span>SALVOS</span>
+            </button>
+            <button class="ig-tab" onclick="showBlockedModal()">
+                <i class="fas fa-user-tag"></i>
+                <span>MARCAÇÕES</span>
+            </button>
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="ig-grid">
+            <!-- Generate 12 blurred photo placeholders -->
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 234</span>
+                        <span><i class="fas fa-comment"></i> 12</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 189</span>
+                        <span><i class="fas fa-comment"></i> 8</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 456</span>
+                        <span><i class="fas fa-comment"></i> 23</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 312</span>
+                        <span><i class="fas fa-comment"></i> 15</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 567</span>
+                        <span><i class="fas fa-comment"></i> 34</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 423</span>
+                        <span><i class="fas fa-comment"></i> 19</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 678</span>
+                        <span><i class="fas fa-comment"></i> 42</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 234</span>
+                        <span><i class="fas fa-comment"></i> 11</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 891</span>
+                        <span><i class="fas fa-comment"></i> 56</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 345</span>
+                        <span><i class="fas fa-comment"></i> 18</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 512</span>
+                        <span><i class="fas fa-comment"></i> 27</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+
+            <div class="ig-grid-item" onclick="showBlockedModal()">
+                <div class="ig-grid-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="ig-grid-overlay">
+                    <div class="ig-grid-stats">
+                        <span><i class="fas fa-heart"></i> 723</span>
+                        <span><i class="fas fa-comment"></i> 45</span>
+                    </div>
+                </div>
+                <div class="ig-blur-overlay"></div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <div class="cta-card">
+                <div class="cta-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="cta-title">Conteúdo Bloqueado</h3>
+                <p class="cta-description">
+                    Desbloqueie acesso completo a stories, mensagens diretas e muito mais com o plano VIP!
+                </p>
+                <button class="cta-btn" onclick="goToDirect()">
+                    <i class="fas fa-comments"></i>
+                    Ver Mensagens Diretas
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../scripts/core/geral.min.js"></script>
+    <script src="../scripts/pages/feed.js"></script>
+</body>
+
+</html>

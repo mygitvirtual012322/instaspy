@@ -1,0 +1,341 @@
+/* Páginas de Pagamento - CSS Profissional */
+
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    background: #0B1014;
+    color: #F9F9F9;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container Principal */
+.payment-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Header */
+.payment-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.payment-logo {
+    height: 36px;
+    opacity: 0.95;
+}
+
+/* Status Card */
+.status-card {
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 16px;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.status-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-icon.mbway {
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-icon.multibanco {
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.method-logo {
+    width: 100%;
+    height: auto;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.status-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #F9F9F9;
+}
+
+.status-subtitle {
+    font-size: 15px;
+    color: #9CA3AF;
+    margin-bottom: 24px;
+}
+
+/* Timer de Escassez */
+.timer-box {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.timer-label {
+    font-size: 12px;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.timer-display {
+    font-size: 48px;
+    font-weight: 800;
+    color: #EF4444;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.timer-warning {
+    font-size: 12px;
+    color: #F87171;
+}
+
+/* Valor do Pagamento */
+.payment-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: rgba(16, 185, 129, 0.08);
+    border-radius: 10px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.value-label {
+    font-size: 14px;
+    color: #9CA3AF;
+}
+
+.value-amount {
+    font-size: 28px;
+    font-weight: 700;
+    color: #10B981;
+}
+
+/* Referência Multibanco */
+.mb-reference-box {
+    background: rgba(11, 16, 20, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.ref-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.ref-row:last-child {
+    margin-bottom: 0;
+}
+
+.ref-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ref-label {
+    font-size: 11px;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ref-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3B82F6;
+    font-family: 'Courier New', monospace;
+}
+
+.ref-value.highlight {
+    color: #10B981;
+    font-size: 22px;
+}
+
+/* Instruções Card */
+.instructions-card {
+    background: rgba(31, 41, 55, 0.4);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.instructions-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #F9F9F9;
+}
+
+/* Steps */
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-number svg {
+    stroke: #10B981;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #F9F9F9;
+}
+
+.step-content p {
+    font-size: 14px;
+    color: #9CA3AF;
+    line-height: 1.5;
+}
+
+.step-content strong {
+    color: #10B981;
+    font-weight: 600;
+}
+
+/* Garantias */
+.guarantees {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding: 20px;
+    background: rgba(31, 41, 55, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.guarantee-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #6B7280;
+}
+
+.guarantee-item svg {
+    stroke: #10B981;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(16, 185, 129, 0.2);
+    border-top-color: #10B981;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 12px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-indicator p {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+    .payment-container {
+        padding: 0;
+    }
+
+    .status-card {
+        padding: 24px 20px;
+    }
+
+    .timer-display {
+        font-size: 40px;
+    }
+
+    .ref-row {
+        grid-template-columns: 1fr;
+    }
+
+    .guarantees {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .step {
+        gap: 12px;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+    }
+}

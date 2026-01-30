@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Desbloqueie acesso VIP ao Stalkea.ai">
+    <title>Acesso VIP - Stalkea.ai</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/cta.css">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="cta-container">
+        <!-- Success Header -->
+        <section class="success-section">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1 class="success-title">Análise 100% Concluída!</h1>
+            <p class="success-subtitle">
+                Todos os dados de <strong id="target-username">@username</strong> foram descriptografados com sucesso
+            </p>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-images"></i>
+                    <span class="stat-value">127</span>
+                    <span class="stat-label">Fotos</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-eye"></i>
+                    <span class="stat-value">23</span>
+                    <span class="stat-label">Stories</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-comments"></i>
+                    <span class="stat-value">8</span>
+                    <span class="stat-label">Conversas</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-heart"></i>
+                    <span class="stat-value">1.2k</span>
+                    <span class="stat-label">Curtidas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Locked Content Preview -->
+        <section class="preview-section">
+            <h2 class="section-title">
+                <i class="fas fa-lock"></i>
+                Conteúdo Bloqueado
+            </h2>
+            <p class="section-subtitle">
+                Desbloqueie acesso completo para visualizar todos os dados
+            </p>
+
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <div class="preview-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="preview-blur"></div>
+                </div>
+                <div class="preview-item">
+                    <div class="preview-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="preview-blur"></div>
+                </div>
+                <div class="preview-item">
+                    <div class="preview-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="preview-blur"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section">
+            <div class="urgency-banner">
+                <i class="fas fa-fire"></i>
+                <span>Oferta por tempo limitado!</span>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-timer">
+                <div class="countdown-text">Esta oferta expira em:</div>
+                <div class="countdown-display">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">14</span>
+                        <span class="countdown-label">min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">59</span>
+                        <span class="countdown-label">seg</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Card -->
+            <div class="pricing-card">
+                <div class="pricing-badge">ACESSO VIP</div>
+                <div class="pricing-header">
+                    <div class="price-old">R$ 97,00</div>
+                    <div class="price-current">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value">37</span>
+                        <span class="price-cents">,00</span>
+                    </div>
+                    <div class="price-discount">62% OFF</div>
+                </div>
+
+                <div class="pricing-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Acesso completo a todas as fotos</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Stories privados desbloqueados</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Mensagens diretas completas</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Curtidas e interações secretas</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Relatório completo em PDF</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Suporte prioritário 24/7</span>
+                    </div>
+                </div>
+
+                <button class="checkout-btn" onclick="handleCheckout()">
+                    <i class="fas fa-unlock"></i>
+                    <span>Desbloquear Acesso Agora</span>
+                </button>
+
+                <div class="guarantee-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Garantia de 30 dias ou seu dinheiro de volta</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Maria S.</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Descobri coisas que nunca imaginei. O sistema é muito fácil de usar e os resultados são
+                        impressionantes!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">João P.</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Valeu cada centavo! Consegui ver todas as conversas e stories que estavam escondidos.
+                        Recomendo!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Ana C.</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Finalmente descobri a verdade. O suporte foi excelente e me ajudou em tudo. Sistema perfeito!"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>É realmente seguro e anônimo?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! Utilizamos criptografia de ponta a ponta e nenhum dado é armazenado. Sua análise é 100%
+                        anônima e segura.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Como funciona a garantia de 30 dias?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Se você não ficar satisfeito com os resultados, basta solicitar o reembolso em até 30 dias e
+                        devolvemos 100% do seu dinheiro.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Quanto tempo tenho acesso aos dados?</span>
+                    </div>
+                    <div class="faq-answer">
+                        O acesso é vitalício! Você pode visualizar e baixar o relatório quantas vezes quiser, sem limite
+                        de tempo.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="cta-footer">
+            <p>&copy; 2024 Stalkea.ai - Todos os direitos reservados</p>
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a>
+                <span>•</span>
+                <a href="#">Política de Privacidade</a>
+                <span>•</span>
+                <a href="#">Contato</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/core/geral.min.js"></script>
+    <script src="../scripts/pages/cta.js"></script>
+</body>
+
+</html>

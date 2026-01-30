@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Seguro - InstaSpy</title>
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.png">
+    <link rel="stylesheet" href="../styles/pages/checkout.css">
+</head>
+
+<body>
+    <!-- Marca d'água sutil -->
+    <div class="watermark">SEGURO</div>
+
+    <div class="checkout-container">
+        <!-- Header Profissional -->
+        <div class="checkout-header">
+            <div class="header-content">
+                <img src="../assets/images/logos/logo.png" alt="InstaSpy" class="checkout-logo">
+                <div class="security-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <span>Checkout Seguro</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resumo Limpo -->
+        <div class="checkout-card order-summary">
+            <div class="summary-header">
+                <h3>Resumo</h3>
+            </div>
+            <div class="order-item">
+                <div class="item-details">
+                    <span class="item-name">InstaSpy - Acesso Vitalício</span>
+                    <span class="item-desc">Acesso completo e ilimitado</span>
+                </div>
+                <div class="item-price">
+                    <span class="price-old">129,00€</span>
+                    <span class="price-current">12,90€</span>
+                </div>
+            </div>
+            <div class="savings-line">
+                <span>Poupança</span>
+                <span class="savings-amount">-116,10€</span>
+            </div>
+        </div>
+
+        <!-- Formulário -->
+        <form id="checkoutForm">
+            <!-- Informações Pessoais -->
+            <div class="checkout-card">
+                <h3>Informações de Contacto</h3>
+
+                <div class="form-group">
+                    <label class="form-label" for="fullName">Nome completo</label>
+                    <input type="text" id="fullName" class="form-input" placeholder="João Silva" required minlength="3">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="joao@exemplo.pt" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="phone">Telemóvel</label>
+                    <input type="tel" id="phone" class="form-input" placeholder="912 345 678" required maxlength="11">
+                </div>
+            </div>
+
+            <!-- Método de Pagamento -->
+            <div class="checkout-card">
+                <h3>Método de Pagamento</h3>
+
+                <div class="payment-tabs">
+                    <button type="button" class="payment-tab active" data-method="mbway">
+                        <div class="tab-content">
+                            <img src="../assets/images/payment/mbway-logo.png" alt="MBWay" class="payment-logo">
+                            <span class="tab-label">MBWay</span>
+                            <span class="tab-badge instant">Liberação na hora</span>
+                        </div>
+                    </button>
+                    <button type="button" class="payment-tab" data-method="multibanco">
+                        <div class="tab-content">
+                            <img src="../assets/images/payment/multibanco-logo.png" alt="Multibanco"
+                                class="payment-logo">
+                            <span class="tab-label">Multibanco</span>
+                            <span class="tab-badge delayed">Até 2 dias úteis</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- MBWay -->
+                <div class="payment-content active" id="mbway-content">
+                    <div class="form-group">
+                        <label class="form-label" for="mbwayPhone">Número de telemóvel</label>
+                        <input type="tel" id="mbwayPhone" class="form-input" placeholder="912 345 678" maxlength="11">
+                    </div>
+                    <p class="payment-note">Receberás uma notificação na app MBWay para confirmar. O acesso é liberado
+                        imediatamente após a confirmação.</p>
+                </div>
+
+                <!-- Multibanco -->
+                <div class="payment-content" id="multibanco-content">
+                    <div class="multibanco-ref" id="mbRef" style="display: none;">
+                        <div class="ref-grid">
+                            <div class="ref-item">
+                                <span class="ref-label">Entidade</span>
+                                <span class="ref-value" id="mbEntity">12345</span>
+                            </div>
+                            <div class="ref-item">
+                                <span class="ref-label">Referência</span>
+                                <span class="ref-value" id="mbReference">123 456 789</span>
+                            </div>
+                            <div class="ref-item">
+                                <span class="ref-label">Valor</span>
+                                <span class="ref-value">12,90€</span>
+                            </div>
+                            <div class="ref-item">
+                                <span class="ref-label">Validade</span>
+                                <span class="ref-value" id="mbValidity">24h</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="payment-note">Paga em qualquer caixa Multibanco ou homebanking. O acesso será liberado em
+                        até 2 dias úteis após a confirmação do pagamento.</p>
+                </div>
+            </div>
+
+            <!-- Botão de Finalizar -->
+            <button type="submit" class="btn-primary" id="submitBtn">
+                <span>Finalizar Compra</span>
+                <span class="btn-amount">12,90€</span>
+            </button>
+
+            <!-- Garantias Sutis -->
+            <div class="security-footer">
+                <div class="security-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    <span>Encriptação SSL</span>
+                </div>
+                <div class="security-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <span>100% Anónimo</span>
+                </div>
+                <div class="security-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span>Acesso Imediato</span>
+                </div>
+            </div>
+        </form>
+
+        <!-- Status de Pagamento (oculto inicialmente) -->
+        <div class="payment-status" id="paymentStatus">
+            <div class="status-icon" id="statusIconContainer">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    id="statusIcon">
+                    <circle cx="12" cy="12" r="10" />
+                </svg>
+            </div>
+            <h2 class="status-title" id="statusTitle">A processar...</h2>
+            <p class="status-message" id="statusMessage">Aguarda um momento...</p>
+        </div>
+    </div>
+</body>
+<script src="../scripts/pages/checkout.min.js"></script>
+
+</html>

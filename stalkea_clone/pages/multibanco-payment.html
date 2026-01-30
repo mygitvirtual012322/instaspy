@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Multibanco - InstaSpy</title>
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.png">
+    <link rel="stylesheet" href="../styles/pages/payment.css">
+</head>
+
+<body>
+    <div class="payment-container">
+        <!-- Header -->
+        <div class="payment-header">
+            <img src="../assets/images/logos/logo.png" alt="InstaSpy" class="payment-logo">
+        </div>
+
+        <!-- Status Card -->
+        <div class="status-card">
+            <div class="status-icon multibanco">
+                <img src="../assets/images/payment/multibanco-logo.png" alt="Multibanco" class="method-logo">
+            </div>
+            <h1 class="status-title">Referência Gerada</h1>
+            <p class="status-subtitle">Paga em qualquer caixa Multibanco ou homebanking</p>
+
+            <!-- Timer de Escassez -->
+            <div class="timer-box">
+                <div class="timer-label">Referência válida por</div>
+                <div class="timer-display" id="timer">23:59:45</div>
+                <div class="timer-warning">Após este tempo, terás de gerar uma nova referência</div>
+            </div>
+
+            <!-- Referência Multibanco -->
+            <div class="mb-reference-box">
+                <div class="ref-row">
+                    <div class="ref-item">
+                        <span class="ref-label">Entidade</span>
+                        <span class="ref-value" id="mbEntity">12345</span>
+                    </div>
+                    <div class="ref-item">
+                        <span class="ref-label">Referência</span>
+                        <span class="ref-value" id="mbReference">123 456 789</span>
+                    </div>
+                </div>
+                <div class="ref-row">
+                    <div class="ref-item">
+                        <span class="ref-label">Valor</span>
+                        <span class="ref-value highlight">12,90€</span>
+                    </div>
+                    <div class="ref-item">
+                        <span class="ref-label">Validade</span>
+                        <span class="ref-value" id="mbValidity">24h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instruções Passo a Passo -->
+        <div class="instructions-card">
+            <h2 class="instructions-title">Como Pagar no Multibanco</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="5" width="20" height="14" rx="2" />
+                            <line x1="2" y1="10" x2="22" y2="10" />
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Acede ao Multibanco ou Homebanking</h3>
+                        <p>Podes usar qualquer caixa ATM ou a tua app de banco</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Seleciona "Pagamentos" ou "Serviços"</h3>
+                        <p>Depois escolhe a opção de pagamento de serviços</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                            <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Insere a Entidade e Referência</h3>
+                        <p>Usa os dados acima e confirma o valor de <strong>12,90€</strong></p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Acesso Liberado em até 2 dias úteis</h3>
+                        <p>Receberás o acesso por email após a confirmação bancária</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Garantias Sutis -->
+        <div class="guarantees">
+            <div class="guarantee-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0110 0v4" />
+                </svg>
+                <span>Pagamento Seguro</span>
+            </div>
+            <div class="guarantee-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span>100% Anónimo</span>
+            </div>
+            <div class="guarantee-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <span>Até 2 Dias Úteis</span>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div class="loading-indicator">
+            <div class="spinner"></div>
+            <p>A aguardar confirmação do pagamento...</p>
+        </div>
+    </div>
+
+    <script src="../scripts/pages/multibanco-payment.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubra o que seu cônjuge faz no Instagram. Análise completa de perfis, stories e mensagens diretas.">
+    <title>Stalkea.ai ® | Site Oficial | O que seu Cônjuge faz no Instagram?</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+<body>
+    <!-- Matrix Canvas Background -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fab fa-instagram"></i>
+                <span>Stalkea.ai</span>
+            </div>
+            <div class="verified-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>100% Seguro</span>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Initial State: Username Input -->
+            <div id="input-section" class="section active">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        O que seu Cônjuge faz no <span class="gradient-text">Instagram</span>?
+                    </h1>
+                    <p class="hero-subtitle">
+                        Descubra conversas secretas, stories ocultos e interações privadas em segundos
+                    </p>
+                    
+                    <!-- Social Proof Counter -->
+                    <div class="social-proof">
+                        <div class="pulse-dot"></div>
+                        <span id="profiles-counter">+81.455</span> perfis analisados hoje
+                    </div>
+                    
+                    <!-- Username Input Form -->
+                    <div class="input-container">
+                        <div class="input-wrapper">
+                            <i class="fab fa-instagram input-icon"></i>
+                            <input 
+                                type="text" 
+                                id="username-input" 
+                                class="username-input" 
+                                placeholder="Digite o @ do Instagram"
+                                autocomplete="off"
+                                spellcheck="false"
+                            >
+                        </div>
+                        <button id="analyze-btn" class="analyze-btn">
+                            <span class="btn-text">Analisar Perfil</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Features List -->
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-eye"></i>
+                            <span>Stories Ocultos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Mensagens Diretas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Curtidas Secretas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-user-secret"></i>
+                            <span>100% Anônimo</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Trust Badges -->
+                    <div class="trust-badges">
+                        <div class="badge">
+                            <i class="fas fa-lock"></i>
+                            <span>Criptografado</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-shield-check"></i>
+                            <span>Seguro</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Anônimo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Loading State: Hacking Simulation -->
+            <div id="loading-section" class="section">
+                <div class="loading-content">
+                    <div class="loading-header">
+                        <div class="loading-avatar">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h2 class="loading-title">Analisando <span id="target-username">@username</span></h2>
+                        <p class="loading-subtitle">Aguarde enquanto descriptografamos os dados...</p>
+                    </div>
+                    
+                    <!-- Terminal Simulation -->
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="terminal-btn red"></span>
+                                <span class="terminal-btn yellow"></span>
+                                <span class="terminal-btn green"></span>
+                            </div>
+                            <div class="terminal-title">stalkea-ai@terminal:~</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div id="terminal-logs" class="terminal-logs"></div>
+                            <div class="terminal-cursor">_</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Bars -->
+                    <div class="progress-container">
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Conectando ao Instagram</span>
+                                <span id="progress-1-percent">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div id="progress-1" class="progress-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Descriptografando Stories</span>
+                                <span id="progress-2-percent">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div id="progress-2" class="progress-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Acessando Mensagens Diretas</span>
+                                <span id="progress-3-percent">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div id="progress-3" class="progress-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Compilando Dados</span>
+                                <span id="progress-4-percent">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div id="progress-4" class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading Status -->
+                    <div class="loading-status">
+                        <div class="spinner"></div>
+                        <span id="status-text">Iniciando análise...</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Stalkea.ai - Todos os direitos reservados</p>
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a>
+                <span>•</span>
+                <a href="#">Política de Privacidade</a>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="scripts/matrix.js"></script>
+    <script src="scripts/core/geral.min.js"></script>
+    <script src="scripts/pages/index.js"></script>
+</body>
+</html>
