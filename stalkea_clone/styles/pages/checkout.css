@@ -60,22 +60,22 @@ body {
     opacity: 0.95;
 }
 
-/* Badge de Segurança Alinhado */
+/* Badge de Segurança Alinhado - ROXO */
 .security-badge {
     display: flex;
     align-items: center;
     gap: 6px;
     padding: 6px 12px;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(171, 88, 244, 0.3);
     border-radius: 6px;
     font-size: 12px;
     font-weight: 500;
-    color: #10B981;
-    background: rgba(16, 185, 129, 0.05);
+    color: #AB58F4;
+    background: rgba(171, 88, 244, 0.08);
 }
 
 .security-badge svg {
-    stroke: #10B981;
+    stroke: #AB58F4;
     flex-shrink: 0;
 }
 
@@ -97,10 +97,10 @@ body {
     letter-spacing: -0.3px;
 }
 
-/* Resumo do Pedido Limpo */
+/* Resumo do Pedido Limpo - ROXO */
 .order-summary {
-    background: rgba(16, 185, 129, 0.04);
-    border-color: rgba(16, 185, 129, 0.1);
+    background: rgba(171, 88, 244, 0.04);
+    border-color: rgba(171, 88, 244, 0.15);
 }
 
 .summary-header h3 {
@@ -146,7 +146,10 @@ body {
 }
 
 .price-current {
-    color: #10B981;
+    background: linear-gradient(135deg, #AB58F4, #DF67FB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 20px;
     font-weight: 700;
 }
@@ -160,7 +163,7 @@ body {
 }
 
 .savings-amount {
-    color: #10B981;
+    color: #AB58F4;
     font-weight: 600;
 }
 
@@ -190,9 +193,9 @@ body {
 
 .form-input:focus {
     outline: none;
-    border-color: #10B981;
+    border-color: #AB58F4;
     background: rgba(11, 16, 20, 0.8);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
+    box-shadow: 0 0 0 3px rgba(171, 88, 244, 0.12);
 }
 
 .form-input::placeholder {
@@ -232,14 +235,14 @@ body {
 }
 
 .payment-tab:hover {
-    border-color: rgba(16, 185, 129, 0.2);
-    background: rgba(16, 185, 129, 0.04);
+    border-color: rgba(171, 88, 244, 0.3);
+    background: rgba(171, 88, 244, 0.05);
 }
 
 .payment-tab.active {
-    border-color: #10B981;
-    background: rgba(16, 185, 129, 0.08);
-    color: #10B981;
+    border-color: #AB58F4;
+    background: rgba(171, 88, 244, 0.1);
+    color: #AB58F4;
 }
 
 /* Multibanco tab com opacidade reduzida */
@@ -289,8 +292,8 @@ body {
 }
 
 .tab-badge.instant {
-    background: rgba(16, 185, 129, 0.15);
-    color: #10B981;
+    background: rgba(171, 88, 244, 0.15);
+    color: #AB58F4;
 }
 
 .tab-badge.delayed {
@@ -345,11 +348,11 @@ body {
 .ref-value {
     font-size: 16px;
     font-weight: 600;
-    color: #10B981;
+    color: #AB58F4;
     font-family: 'Courier New', monospace;
 }
 
-/* Botão Principal Minimalista */
+/* Botão Principal Minimalista - VERDE (mantém verde para ação) */
 .btn-primary {
     width: 100%;
     padding: 16px;
@@ -430,7 +433,7 @@ body {
 }
 
 .security-item svg {
-    stroke: #10B981;
+    stroke: #AB58F4;
     opacity: 0.6;
 }
 
@@ -450,7 +453,7 @@ body {
 }
 
 .status-icon svg {
-    stroke: #10B981;
+    stroke: #AB58F4;
     animation: pulse 2s ease-in-out infinite;
 }
 
