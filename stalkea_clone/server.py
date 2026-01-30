@@ -15,7 +15,9 @@ def log_request_info():
         print(f"📡 Request: {request.method} {request.path} | Remote: {request.remote_addr}")
 
 # --- CONFIGURAÇÃO E DADOS ---
-DATA_DIR = 'data'
+# Define diretório base absoluto para evitar erros de CWD no Railway
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, 'data')
 ORDERS_FILE = os.path.join(DATA_DIR, 'orders.json')
 
 # Garante que diretório de dados existe
@@ -54,12 +56,14 @@ def save_order(order_data):
 
 @app.route('/')
 def root():
-    return send_from_directory('templates', 'home.html')
+    templates_dir = os.path.join(BASE_DIR, 'templates')
+    return send_from_directory(templates_dir, 'home.html')
 
 # Rotas do Admin (Frontend)
 @app.route('/admin/login')
 def admin_login_page():
-    return send_from_directory('templates', 'admin_login.html')
+    templates_dir = os.path.join(BASE_DIR, 'templates')
+    return send_from_directory(templates_dir, 'admin_login.html')
 
 @app.route('/admin')
 @app.route('/admin/')
@@ -67,7 +71,8 @@ def admin_login_page():
 def admin_dashboard():
     if not session.get('logged_in'):
         return redirect('/admin/login')
-    return send_from_directory('templates', 'admin_index.html')
+    templates_dir = os.path.join(BASE_DIR, 'templates')
+    return send_from_directory(templates_dir, 'admin_index.html')
 
 
 
@@ -175,23 +180,32 @@ def get_orders():
 # --- ERROR HANDLERS & DIAGNOSTICS ---
 @app.errorhandler(404)
 def page_not_found(e):
-    return f"PYTHON SERVER 404: Path {request.path} not found. CWD: {os.getcwd()}", 404
+    return f"PYTHON SERVER 404: Path {request.path} not found. BASE_DIR: {BASE_DIR}", 404
 
 @app.route('/health')
 def health_check():
+    # Diagnostics: List files in templates and root
+    templates_dir = os.path.join(BASE_DIR, 'templates')
+    templates_list = os.listdir(templates_dir) if os.path.exists(templates_dir) else ['ERROR: templates dir not found']
+    
+    root_list = os.listdir(BASE_DIR)
+    
     return jsonify({
         'status': 'ok',
         'server': 'python-flask',
+        'base_dir': BASE_DIR,
         'cwd': os.getcwd(),
-        'templates_exists': os.path.exists('templates'),
-        'admin_template_exists': os.path.exists(os.path.join('templates', 'admin_index.html'))
+        'templates_files': templates_list,
+        'root_files': root_list,
+        'templates_exists': os.path.exists(templates_dir),
+        'admin_template_exists': os.path.exists(os.path.join(templates_dir, 'admin_index.html'))
     })
 
 # Servir arquivos estáticos genéricos (CSS, JS, Images, outras páginas HTML)
 # IMPORTANTE: Esta rota deve ser a ÚLTIMA, pois captura tudo.
 @app.route('/<path:path>')
 def static_proxy(path):
-    return send_from_directory('.', path)
+    return send_from_directory(BASE_DIR, path)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8000))
