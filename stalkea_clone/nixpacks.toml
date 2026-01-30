@@ -5,4 +5,4 @@ nixPkgs = ["python3", "gcc"]
 cmds = ["pip install -r requirements.txt"]
 
 [start]
-cmd = "gunicorn server:app"
+cmd = "python server.py"
