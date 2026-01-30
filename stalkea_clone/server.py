@@ -52,7 +52,7 @@ def root():
 # Rotas do Admin (Frontend)
 @app.route('/admin/login')
 def admin_login_page():
-    return send_from_directory('admin', 'login.html')
+    return send_from_directory('templates', 'admin_login.html')
 
 @app.route('/admin')
 @app.route('/admin/')
@@ -60,7 +60,7 @@ def admin_login_page():
 def admin_dashboard():
     if not session.get('logged_in'):
         return redirect('/admin/login')
-    return send_from_directory('admin', 'index.html')
+    return send_from_directory('templates', 'admin_index.html')
 
 
 
