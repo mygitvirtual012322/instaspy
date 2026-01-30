@@ -13,6 +13,49 @@ body {
     color: #F9F9F9;
     line-height: 1.6;
     position: relative;
+    padding-top: 36px;
+    /* Espaço para top bar */
+}
+
+/* Top Bar Announcement */
+.top-announcement {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(5, 150, 105, 0.12));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+.announcement-content {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.announcement-content svg {
+    stroke: #10B981;
+    flex-shrink: 0;
+    opacity: 0.8;
+}
+
+.announcement-text {
+    font-size: 12px;
+    color: #D1D5DB;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.announcement-text strong {
+    color: #10B981;
+    font-weight: 700;
 }
 
 /* Marca d'água sutil */
