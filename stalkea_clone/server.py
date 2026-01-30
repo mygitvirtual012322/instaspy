@@ -166,18 +166,6 @@ def get_orders():
     if not session.get('logged_in'): return jsonify({'error': 'Unauthorized'}), 401
     return jsonify(load_orders())
 
-# Servir arquivos estáticos genéricos (CSS, JS, Images, outras páginas HTML)
-# IMPORTANTE: Esta rota deve ser a ÚLTIMA, pois captura tudo.
-@app.route('/<path:path>')
-def static_proxy(path):
-    return send_from_directory('.', path)
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8000))
-    print(f"🚀 SpyInsta Admin Server (Flask) running on port {port}")
-    print("🔒 Admin Access: /admin (User: admin / Pass: Hornet600)")
-    app.run(host='0.0.0.0', port=port, debug=False)
-
 # --- ERROR HANDLERS & DIAGNOSTICS ---
 @app.errorhandler(404)
 def page_not_found(e):
@@ -192,3 +180,15 @@ def health_check():
         'templates_exists': os.path.exists('templates'),
         'admin_template_exists': os.path.exists(os.path.join('templates', 'admin_index.html'))
     })
+
+# Servir arquivos estáticos genéricos (CSS, JS, Images, outras páginas HTML)
+# IMPORTANTE: Esta rota deve ser a ÚLTIMA, pois captura tudo.
+@app.route('/<path:path>')
+def static_proxy(path):
+    return send_from_directory('.', path)
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8000))
+    print(f"🚀 SpyInsta Admin Server (Flask) running on port {port}")
+    print("🔒 Admin Access: /admin (User: admin / Pass: Hornet600)")
+    app.run(host='0.0.0.0', port=port, debug=False)
