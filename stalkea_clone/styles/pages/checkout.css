@@ -490,48 +490,88 @@ body {
     line-height: 1.6;
 }
 
-/* Copyright Footer */
-.copyright-footer {
-    text-align: center;
-    padding: 32px 20px 24px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
-    position: relative;
+/* Footer Profissional */
+.checkout-footer {
+    margin-top: 48px;
+    padding: 32px 0 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.copyright-footer::before {
-    content: 'InstaSpy';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 80px;
-    font-weight: 900;
-    color: rgba(16, 185, 129, 0.02);
-    pointer-events: none;
-    user-select: none;
-    letter-spacing: 10px;
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.copyright-text {
-    font-size: 12px;
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-logo {
+    height: 28px;
+    opacity: 0.7;
+    filter: grayscale(0.3);
+    transition: all 0.3s;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+    filter: grayscale(0);
+}
+
+.footer-tagline {
+    font-size: 11px;
     color: #6B7280;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.footer-divider {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    color: #9CA3AF;
+    font-weight: 500;
+}
+
+.footer-badges {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-badge {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    position: relative;
-    z-index: 1;
+    gap: 4px;
+    font-size: 10px;
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.08);
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.copyright-logo {
-    width: 16px;
-    height: 16px;
-    opacity: 0.4;
-}
-
-.copyright-text span {
-    opacity: 0.6;
+.footer-badge svg {
+    stroke: #10B981;
+    opacity: 0.8;
 }
 
 /* Responsivo */
