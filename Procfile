@@ -1,1 +1,1 @@
-web: cd stalkea_clone && python3 -m http.server $PORT
+web: node server.js
