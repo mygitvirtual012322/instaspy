@@ -5,8 +5,14 @@ import json
 from datetime import datetime, timedelta
 
 # Inicializa Flask
-app = Flask(__name__, static_url_path='', static_folder='.')
+# REMOVIDO static_url_path='' pois causa conflito com rotas explícitas em alguns ambientes
+app = Flask(__name__) 
 app.secret_key = 'HORNET600_SECRET_KEY_PRODUCTION' # Chave secreta para sessões
+
+@app.before_request
+def log_request_info():
+    if request.path != '/api/auth/check' and not request.path.startswith('/static'):
+        print(f"📡 Request: {request.method} {request.path} | Remote: {request.remote_addr}")
 
 # --- CONFIGURAÇÃO E DADOS ---
 DATA_DIR = 'data'
