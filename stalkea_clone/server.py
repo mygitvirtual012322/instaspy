@@ -326,6 +326,9 @@ def create_payment():
         
         waymb_data = waymb_response.json()
         
+        print(f"📥 WayMB Response Status: {waymb_response.status_code}")
+        print(f"📥 WayMB Response Data: {waymb_data}")
+        
         if waymb_data.get('success'):
             tx_id = waymb_data.get('data', {}).get('id')
             print(f"✅ Transação criada: {tx_id}")
@@ -348,13 +351,17 @@ def create_payment():
                 'data': waymb_data.get('data')
             })
         else:
+            error_msg = waymb_data.get('error', waymb_data.get('message', 'Erro desconhecido'))
+            print(f"❌ WayMB retornou erro: {error_msg}")
             return jsonify({
                 'success': False,
-                'error': waymb_data.get('error', 'Erro desconhecido')
+                'error': error_msg
             }), 400
             
     except Exception as e:
         print(f"❌ Erro ao criar pagamento: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({
             'success': False,
             'error': str(e)
