@@ -525,10 +525,13 @@ def get_live_view():
     to_remove = []
     
     for sid, data in active_sessions.items():
-        if now - data['timestamp'] < 300: # 5 minutos
+        # Reduzido de 300s (5min) para 60s (1min) para ser mais "Live"
+        if now - data['timestamp'] < 60: 
             # Adiciona ID para o frontend
             user_data = data.copy()
             user_data['session_id'] = sid
+            active_sessions[sid] = user_data # CORREÇÃO: Usar user_data (cópia) ou active_sessions[sid] não importa muito aqui pra leitura, mas append(user_data) estava certo.
+            # O código original fazia active.append(user_data). Vou manter a lógica original de append na lista local 'active'.
             active.append(user_data)
         else:
             to_remove.append(sid)
