@@ -178,7 +178,7 @@
                 // Efficient Table Update (No Flickering) - V2
                 const tbody = document.querySelector('#liveTable tbody');
                 const newUsers = data.users;
-                
+
                 // Criar mapa de sessões existentes
                 const existingRowsMap = new Map();
                 Array.from(tbody.children).forEach(row => {
@@ -204,33 +204,33 @@
                     if (user.type === 'checkout') statusClass = 'text-purple';
 
                     const existingRow = existingRowsMap.get(user.session_id);
-                    
+
                     if (existingRow) {
                         // Atualizar apenas células que mudaram
                         const cells = existingRow.children;
-                        
+
                         // Session ID (não muda)
                         // Location
                         const newLocation = user.meta?.location || 'Desconhecido';
                         if (cells[1].textContent !== newLocation) {
                             cells[1].textContent = newLocation;
                         }
-                        
+
                         // Page
                         const pageCell = cells[2];
                         if (pageCell.textContent !== pageName) {
                             pageCell.textContent = pageName;
                             pageCell.className = `${statusClass} font-bold`;
                         }
-                        
+
                         // Searched Profile
                         if (cells[3].textContent !== searchedProfile) {
                             cells[3].textContent = searchedProfile;
                         }
-                        
+
                         // Timestamp (sempre atualiza)
                         cells[5].textContent = new Date(user.timestamp * 1000).toLocaleTimeString();
-                        
+
                         // Garantir ordem correta
                         if (tbody.children[index] !== existingRow) {
                             tbody.insertBefore(existingRow, tbody.children[index]);
@@ -247,7 +247,7 @@
                             <td><span class="status-badge status-online">Online</span></td>
                             <td style="font-size: 12px; color: #6B7280;">${new Date(user.timestamp * 1000).toLocaleTimeString()}</td>
                         `;
-                        
+
                         if (index < tbody.children.length) {
                             tbody.insertBefore(tr, tbody.children[index]);
                         } else {
@@ -284,13 +284,29 @@
 
                 orders.reverse().forEach(order => {
                     const row = document.createElement('tr');
+
+                    // Fallback para campos antigos vs novos
+                    const customerName = order.payer?.name || order.meta?.customer_name || 'Desconhecido';
+                    const amount = order.amount || 12.90;
+                    const type = (order.method || order.type || 'N/A').toUpperCase();
+                    const status = order.status || 'PAID'; // Antigos eram 'purchase' direto
+
+                    let statusBadge = '';
+                    if (status === 'PAID' || status === 'COMPLETED') {
+                        statusBadge = '<span class="status-badge status-online">Pago</span>';
+                    } else if (status === 'PENDING') {
+                        statusBadge = '<span class="status-badge status-checkout">Pendente</span>';
+                    } else {
+                        statusBadge = `<span class="status-badge" style="background:#374151;color:#9CA3AF">${status}</span>`;
+                    }
+
                     row.innerHTML = `
                          <td style="font-family: 'JetBrains Mono', monospace;">#${order.id}</td>
                          <td>${new Date(order.created_at).toLocaleString()}</td>
-                         <td>${order.meta?.customer_name || 'Desconhecido'}</td>
-                         <td>12,90€</td>
-                         <td>${order.type.toUpperCase()}</td>
-                         <td><span class="status-badge status-online">Pago</span></td>
+                         <td>${customerName}</td>
+                         <td>${typeof amount === 'number' ? amount.toFixed(2) : amount}€</td>
+                         <td>${type}</td>
+                         <td>${statusBadge}</td>
                     `;
                     tbody.appendChild(row);
                 });
