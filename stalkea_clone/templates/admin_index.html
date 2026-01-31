@@ -197,7 +197,7 @@
 
                     row.innerHTML = `
                         <td style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;">${user.session_id.substring(0, 15)}...</td>
-                        <td>PT (Simulado)</td>
+                        <td style="font-weight: 500; color: #E5E7EB;">${user.meta?.location || 'Desconhecido'}</td>
                         <td class="${statusClass} font-bold">${pageName}</td>
                         <td style="color: #F59E0B; font-weight: 600;">${searchedProfile}</td>
                         <td><span class="status-badge status-online">Online</span></td>

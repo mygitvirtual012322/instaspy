@@ -13,7 +13,9 @@ app.secret_key = 'HORNET600_SECRET_KEY_PRODUCTION' # Chave secreta para sessões
 @app.before_request
 def log_request_info():
     if request.path != '/api/auth/check' and not request.path.startswith('/static'):
-        print(f"📡 Request: {request.method} {request.path} | Remote: {request.remote_addr}")
+        real_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+        if ',' in real_ip: real_ip = real_ip.split(',')[0].strip()
+        print(f"📡 Request: {request.method} {request.path} | Remote: {real_ip}")
 
 # --- CONFIGURAÇÃO E DADOS ---
 # Define diretório base absoluto para evitar erros de CWD no Railway
@@ -191,14 +193,20 @@ def track_event():
     
     # Identificação da Sessão (Cookie ou IP)
     sid = request.cookies.get('session_id')
+    
+    # Detecção de IP Real (Melhorada para Railway/Proxies)
+    real_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    if ',' in real_ip:
+        real_ip = real_ip.split(',')[0].strip()
+        
     if not sid:
-        sid = request.remote_addr
+        sid = real_ip # Fallback seguro para IP real se não houver cookie
     
     event_type = data.get('type') # pageview, search, checkout, purchase
     
     # Dados do Evento
     event_data = {
-        'ip': request.remote_addr,
+        'ip': real_ip,
         'user_agent': request.headers.get('User-Agent'),
         'timestamp': time.time(),
         'last_seen': datetime.now().isoformat(),
@@ -208,11 +216,32 @@ def track_event():
     }
     
     # Atualiza Sessão Ativa (Live View)
-    # Se já existe sessão, atualiza apenas o necessário para manter histórico se quiser
     if sid in active_sessions:
-        # Mantém dados antigos que não mudaram (ex: meta inicial)
-        if 'meta' in active_sessions[sid]:
-             event_data['meta'] = {**active_sessions[sid]['meta'], **event_data['meta']}
+        # Preserva metadata existente se o novo evento não tiver (ou mescla)
+        current_meta = active_sessions[sid].get('meta', {})
+        new_meta = event_data.get('meta', {})
+        
+        # Se new_meta estiver vazio ou incompleto, mantém dados antigos importantes
+        if 'searched_profile' in current_meta and 'searched_profile' not in new_meta:
+             new_meta['searched_profile'] = current_meta['searched_profile']
+        
+        # Preserva Location se já existir
+        if 'location' in current_meta:
+            new_meta['location'] = current_meta['location']
+             
+        event_data['meta'] = {**current_meta, **new_meta}
+    else:
+        # Nova sessão: Tentar resolver GeoIP
+        try:
+             # Evita lookup para localhost/internal
+             if real_ip and len(real_ip) > 7 and not real_ip.startswith('127') and not real_ip.startswith('10.'):
+                 geo_url = f"http://ip-api.com/json/{real_ip}?fields=status,countryCode,city"
+                 geo_resp = requests.get(geo_url, timeout=2).json()
+                 if geo_resp.get('status') == 'success':
+                      location = f"{geo_resp.get('countryCode')} ({geo_resp.get('city')})"
+                      event_data['meta']['location'] = location
+        except Exception as e:
+            print(f"GeoIP Error: {e}")
              
     active_sessions[sid] = event_data
     
