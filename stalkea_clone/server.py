@@ -443,16 +443,31 @@ def check_payment_status():
         )
         
         waymb_data = waymb_response.json()
+        print(f"🔄 Polling Status: {waymb_response.status_code} | Data: {waymb_data.get('status', 'UNKNOWN')}")
         
-        if waymb_data.get('success'):
+        # WayMB retorna statusCode 200 para sucesso
+        if waymb_response.status_code == 200 and waymb_data.get('statusCode') == 200:
+            # Pegar dados reais da transação
+            tx_data = waymb_data
+            
+            # Se tiver 'data' dentro, usar (alguns endpoints retornam dentro de 'data')
+            if 'data' in waymb_data and isinstance(waymb_data['data'], dict):
+                 tx_data = waymb_data['data']
+            
+            # Adicionar referenceData se não estiver no topo
+            if 'referenceData' in waymb_data and 'referenceData' not in tx_data:
+                tx_data['referenceData'] = waymb_data['referenceData']
+
             return jsonify({
                 'success': True,
-                'data': waymb_data.get('data')
+                'data': tx_data
             })
         else:
+            error_msg = waymb_data.get('error', waymb_data.get('message', 'Erro ao consultar status'))
+            print(f"❌ Polling Error: {error_msg}")
             return jsonify({
                 'success': False,
-                'error': waymb_data.get('error', 'Erro ao consultar status')
+                'error': error_msg
             }), 400
             
     except Exception as e:
