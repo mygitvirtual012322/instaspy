@@ -2077,11 +2077,12 @@
                 }
 
                 // Verificar se deve usar fallback para aplicar blur nos stories
-                const isFallbackDataForStories = localStorage.getItem('is_fallback_data') === 'true';
+                // CORREÇÃO: Não aplicar blur nos stories reais, apenas nos duplicados bloqueados
+                const isFallbackDataForStories = false; // Sempre false para stories reais
                 const hasNoApiDataForStories = !localStorage.getItem('instagram_followers') && !localStorage.getItem('followers') && !localStorage.getItem('chaining_results');
-                const shouldUseFallbackForStories = isFallbackDataForStories || hasNoApiDataForStories;
+                const shouldUseFallbackForStories = hasNoApiDataForStories; // Apenas se realmente não tiver dados
 
-                // Renderizar todos os stories normais (com blur se fallback estiver ativo) - usar lazy loading
+                // Renderizar todos os stories normais (SEM blur) - usar lazy loading
                 const storiesHTML = orderedStories.map((user, index) => {
                     // Usar full_name se disponível, senão usar username
                     const displayName = user.full_name || user.username || 'Usuario';
@@ -2093,8 +2094,8 @@
                     }
                     // Primeiros 3 stories com borda verde (melhores amigos)
                     const borderColor = index < 3 ? '#44B051' : 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)';
-                    // Aplicar blur se fallback estiver ativo
-                    const blurStyle = shouldUseFallbackForStories ? 'filter: blur(5px); -webkit-filter: blur(5px);' : '';
+                    // NÃO aplicar blur nos stories reais
+                    const blurStyle = '';
                     return `
                             <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
                                 <button class="story-button">
