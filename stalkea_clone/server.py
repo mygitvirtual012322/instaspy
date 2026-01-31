@@ -497,6 +497,8 @@ def debug_orders():
 @app.errorhandler(404)
 def page_not_found(e):
     return f"PYTHON SERVER 404: Path {request.path} not found. BASE_DIR: {BASE_DIR}", 404
+
+@app.route('/api/admin/live', methods=['GET'])
 def get_live_view():
     """Retorna usuários ativos nos últimos 5 minutos"""
     if not session.get('logged_in'): return jsonify({'error': 'Unauthorized'}), 401
