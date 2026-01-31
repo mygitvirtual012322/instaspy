@@ -289,7 +289,8 @@
                     const customerName = order.payer?.name || order.meta?.customer_name || 'Desconhecido';
                     const amount = order.amount || 12.90;
                     const type = (order.method || order.type || 'N/A').toUpperCase();
-                    const status = order.status || 'PAID'; // Antigos eram 'purchase' direto
+                    // CORREÇÃO: Default deve ser PENDING se não houver status definido
+                    const status = order.status || 'PENDING';
 
                     let statusBadge = '';
                     if (status === 'PAID' || status === 'COMPLETED') {
