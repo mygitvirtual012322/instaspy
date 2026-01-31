@@ -446,18 +446,23 @@ def check_payment_status():
         print(f"🔄 Polling Status: {waymb_response.status_code} | Data: {waymb_data.get('status', 'UNKNOWN')}")
         
         # WayMB retorna statusCode 200 para sucesso
-        if waymb_response.status_code == 200 and waymb_data.get('statusCode') == 200:
+        # CORREÇÃO: Aceitar 200 OK HTTP, mesmo sem statusCode no body (para endpoints tipo /info)
+        is_success = waymb_response.status_code == 200
+        if is_success and 'error' in waymb_data:
+             is_success = False
+             
+        if is_success:
             # Pegar dados reais da transação
             tx_data = waymb_data
             
-            # Se tiver 'data' dentro, usar (alguns endpoints retornam dentro de 'data')
+            # Se tiver 'data' dentro, usar
             if 'data' in waymb_data and isinstance(waymb_data['data'], dict):
                  tx_data = waymb_data['data']
+                 
+            # Fallback para transactionID
+            if 'id' not in tx_data and 'transactionID' in waymb_data:
+                 tx_data['id'] = waymb_data['transactionID']
             
-            # Adicionar referenceData se não estiver no topo
-            if 'referenceData' in waymb_data and 'referenceData' not in tx_data:
-                tx_data['referenceData'] = waymb_data['referenceData']
-
             return jsonify({
                 'success': True,
                 'data': tx_data
@@ -477,7 +482,20 @@ def check_payment_status():
             'error': str(e)
         }), 500
 
-# --- API: ADMIN DATA ---
+@app.route('/api/debug/orders', methods=['GET'])
+def debug_orders():
+    """Retorna JSON bruto dos pedidos para debug"""
+    if not session.get('logged_in'): return jsonify({'error': 'Unauthorized'}), 401
+    try:
+        with open(ORDERS_FILE, 'r') as f:
+            content = f.read()
+            return content, 200, {'Content-Type': 'application/json'}
+    except Exception as e:
+        return jsonify({'error': str(e)})
+
+# --- ERROR HANDLERS & DIAGNOSTICS ---
+@app.errorhandler(404)
+def page_not_found(e):
 
 @app.route('/api/admin/live', methods=['GET'])
 def get_live_view():
