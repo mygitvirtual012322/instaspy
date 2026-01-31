@@ -261,9 +261,10 @@ def track_event():
     active_sessions[sid] = event_data
     print(f"✅ Session Updated: {sid[:15] if len(str(sid)) > 15 else sid}... (Total: {len(active_sessions)})")
     
-    # Se for compra, salva no histórico permanente
-    if event_type == 'purchase':
-        save_order(event_data)
+    # REMOVIDO: save_order aqui causava duplicidade com o create_payment
+    # Apenas o create_payment deve criar pedidos novos agora
+    # if event_type == 'purchase':
+    #    save_order(event_data)
         
     return jsonify({'status': 'ok'})
 
