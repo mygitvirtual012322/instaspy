@@ -67,4 +67,11 @@
         console.log('🚀 Evento Disparado: Purchase');
     }
 
+    // --- HEARTBEAT: Manter sessão ativa no Live View ---
+    // Envia evento a cada 30 segundos para evitar que sessão expire
+    setInterval(() => {
+        trackInternal('pageview'); // Re-envia pageview para atualizar timestamp
+    }, 30000); // 30 segundos
+
 })();
+
