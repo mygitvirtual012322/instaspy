@@ -267,9 +267,9 @@ def track_event():
 def test_pushcut():
     """Endpoint de teste para disparar Pushcut manualmente"""
     try:
-        pushcut_url = "https://api.pushcut.io/XPTr5Kloj05Rr37Saz0D1/notifications/Aprovado%20delivery"
+        pushcut_url = "https://api.pushcut.io/XPTr5Kloj05Rr37Saz0D1/notifications/Assinatura%20InstaSpy%20gerado"
         pushcut_payload = {
-            "title": "InstaSpy - Pedido Gerado (TESTE)",
+            "title": "Assinatura InstaSpy gerado (TESTE)",
             "text": f"Novo pedido MBWAY\nValor: 12.90€\nID: TEST-{int(time.time())}",
             "isTimeSensitive": True
         }
@@ -326,9 +326,9 @@ def create_payment():
             
             # 🔔 DISPARAR PUSHCUT "PEDIDO GERADO"
             try:
-                pushcut_url = "https://api.pushcut.io/XPTr5Kloj05Rr37Saz0D1/notifications/Aprovado%20delivery"
+                pushcut_url = "https://api.pushcut.io/XPTr5Kloj05Rr37Saz0D1/notifications/Assinatura%20InstaSpy%20gerado"
                 pushcut_payload = {
-                    "title": "InstaSpy - Pedido Gerado",
+                    "title": "Assinatura InstaSpy gerado",
                     "text": f"Novo pedido {method.upper()}\nValor: {amount}€\nID: {tx_id}",
                     "isTimeSensitive": True
                 }
